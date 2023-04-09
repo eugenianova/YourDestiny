@@ -1,43 +1,27 @@
 package com.example.pract.view;
 
-import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.fragment.app.Fragment;
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.Navigation;
 
 import com.example.pract.R;
 import com.example.pract.viewmodel.MyViewModel;
-import com.example.pract.viewmodel.Text_Changer;
 
 public class MainFragment extends Fragment {
     private final String TAG = this.getClass().getSimpleName();
-    private NotificationManager notificationManager;
-    private static final int NOTIFY_ID = 1;
-    private static final String CHANNEL_ID="CHANNEl_ID";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -51,7 +35,6 @@ public class MainFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         Toast.makeText(getContext(), "onViewCreated", Toast.LENGTH_SHORT).show();
         Log.d(TAG, "onViewCreated");
-        notificationManager = (NotificationManager) getContext().getSystemService(Context.NOTIFICATION_SERVICE);
 
         Button raid_button = getView().findViewById(R.id.raidButton);
         raid_button.setOnClickListener(new View.OnClickListener() {
@@ -93,26 +76,6 @@ public class MainFragment extends Fragment {
             }
 
         });
-
-    }
-    private void showNotification() {
-        NotificationCompat.Builder builder = new
-                NotificationCompat.Builder(getContext(), CHANNEL_ID)
-                .setAutoCancel(false)
-                .setSmallIcon(R.drawable.ic_launcher_foreground)
-                .setContentTitle(getString(
-                        R.string.nothing_search))
-                .setContentText("Вы ничего не ввели....")
-                .setPriority(NotificationCompat.PRIORITY_HIGH);
-        createChannelIfNeeded(notificationManager);
-        notificationManager.notify(NOTIFY_ID, builder.build());
-    }
-
-    public static void  createChannelIfNeeded(NotificationManager manager){
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-            NotificationChannel notificationChannel = new NotificationChannel(CHANNEL_ID,CHANNEL_ID, NotificationManager.IMPORTANCE_DEFAULT);
-            manager.createNotificationChannel(notificationChannel);
-        }
     }
 
 }
