@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">YourDestiny</string>
+    <string name="header">Guides</string>
+    <string name="header_2">Guides_2</string>
+    <string name="raid_button">Raid</string>
+    <string name="nothing_search">Nothing to search</string>
+    <string name="dungeon_button">Dungeon</string>
+    <string name="search">Search for activity</string>
+    <string name="search_button">Search</string>
+    <string name="title_activity_second">Second_Activity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="third_fragment_label">Third Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+
+    <string name="vow_of_the_disciple">Vow of the Disciple</string>
+    <string name="deep_stone_crypt">Deep Stone Crypt</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
