@@ -1,5 +1,6 @@
 package com.example.pract.viewmodel;
 
+import android.content.Context;
 import android.util.Log;
 
 import androidx.lifecycle.LiveData;
@@ -12,7 +13,8 @@ import com.example.pract.model.Repository;
 
 public class MyViewModel extends ViewModel {
     private final String TAG = this.getClass().getSimpleName();
-    private final Repository<String> repository = new Repository<>(new ArrayDataSource<>());
+    private Context context_storage;
+    private final Repository<String> repository = new Repository<>(new ArrayDataSource<>(), context_storage);
     public void onButtonClick(int item_id) {
         Log.d(TAG, String.valueOf(item_id));
     }
