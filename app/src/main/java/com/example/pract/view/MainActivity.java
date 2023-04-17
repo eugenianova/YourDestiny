@@ -2,7 +2,6 @@ package com.example.pract.view;
 
 
 import android.Manifest;
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -19,7 +18,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -27,16 +25,16 @@ import java.nio.charset.StandardCharsets;
 
 public class MainActivity extends AppCompatActivity {
     private final String TAG = this.getClass().getSimpleName();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
         app_specific_storage();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
-        common_Storage();
+        common_storage();
     }
 
     @Override
@@ -89,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("Storages", contents);
         }
     }
-    public void common_Storage(){
+    public void common_storage(){
         File directory = Environment.getExternalStorageDirectory();
         File file = new File(directory, "new_file.txt");
         try {
@@ -122,5 +120,4 @@ public class MainActivity extends AppCompatActivity {
         String content = contentBuilder.toString();
         Log.d("Storages", content);
     }
-
 }

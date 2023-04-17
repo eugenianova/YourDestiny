@@ -7,6 +7,7 @@
     <string name="dungeon_button">Dungeon</string>
     <string name="search">Search for activity</string>
     <string name="search_button">Search</string>
+    <string name="history_count">0</string>
     <string name="title_activity_second">Second_Activity</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>

@@ -45,7 +45,7 @@ public class FirstService extends Service {
                 WindowManager.LayoutParams.FLAG_NOT_FOCUSABLE,
                 PixelFormat.TRANSLUCENT);
         mWindowManager.addView(mOverlayView, params);
-        params.gravity = Gravity.LEFT | Gravity.CENTER;
+        params.gravity = Gravity.LEFT | Gravity.TOP;
         mWindowManager.updateViewLayout(mOverlayView, params);
         Button myButton = mOverlayView.findViewById(R.id.transfer_to_three);
         myButton.setOnClickListener(new View.OnClickListener() {

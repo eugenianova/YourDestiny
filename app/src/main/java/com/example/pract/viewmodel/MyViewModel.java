@@ -13,8 +13,13 @@ import com.example.pract.model.Repository;
 
 public class MyViewModel extends ViewModel {
     private final String TAG = this.getClass().getSimpleName();
-    private Context context_storage;
-    private final Repository<String> repository = new Repository<>(new ArrayDataSource<>(), context_storage);
+    private int NUMBER = 0;
+
+    private Context context;
+    private Repository<String> repository;
+
+
+
     public void onButtonClick(int item_id) {
         Log.d(TAG, String.valueOf(item_id));
     }
@@ -24,10 +29,16 @@ public class MyViewModel extends ViewModel {
     public LiveData<Text_Changer> getData(){
         return text_changer;
     }
-
+    public void createMV(Context context){
+        this.context = context;
+        repository = new Repository<>(new ArrayDataSource<>(), context);
+    }
     public void Change_text(String data) {
         text_changer.setValue(new Text_Changer(data));
         repository.add(data);
-        System.out.println(repository.getAll());
+        repository.insert(data);
+        NUMBER += 1;
+        repository.getHistory();
+        System.out.println(repository.getAll() + "DB");
     }
 }
