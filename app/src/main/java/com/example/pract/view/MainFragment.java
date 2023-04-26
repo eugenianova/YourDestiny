@@ -1,7 +1,9 @@
 package com.example.pract.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -34,6 +36,7 @@ public class MainFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_main, container, false);
 
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState){
@@ -81,6 +84,18 @@ public class MainFragment extends Fragment {
             }
         });
         loadData();
+
+        Button button4 = getView().findViewById(R.id.share_button);
+        button4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View arg) {
+                String query = editText.getText().toString(); // получаем информацию из поля ввода
+                String url = "https://www.google.com/search?q=" + query; // формируем URL-адрес запроса
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
+            }
+        });
     }
 
     public void saveData() {

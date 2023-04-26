@@ -29,8 +29,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/editTextTextPersonName"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="130dp"
-                android:layout_marginBottom="-54dp"
+                android:layout_marginEnd="226dp"
+                android:layout_marginBottom="-50dp"
                 android:text="@string/search_button" />
 
             <EditText
@@ -45,6 +45,16 @@
                 android:inputType="textPersonName"
                 android:text="@string/search"
                 android:textColor="@color/white" />
+
+            <Button
+                android:id="@+id/share_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="25dp"
+                android:layout_marginBottom="7dp"
+                android:text="Find in Google" />
 
         </RelativeLayout>
 

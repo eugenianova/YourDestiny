@@ -30,22 +30,40 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        Intent intent = getIntent();
+        String action = intent.getAction();
+        String type = intent.getType();
+
+        if (Intent.ACTION_SEND.equals(action) && type != null) {
+            if ("text/plain".equals(type)) {
+                handleSendText(intent); // Handle text being sent
+            }
+        }
         app_specific_storage();
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
         }
         common_storage();
+
+
+
     }
 
+    void handleSendText(Intent intent) {
+        String sharedText = intent.getStringExtra(Intent.EXTRA_TEXT);
+        if (sharedText != null) {
+            Log.d("MESSAGE_OUTSIDE", sharedText);
+        }
+    }
     @Override
     protected void onStop() {
         super.onStop();
-        startService(new Intent(this, FirstService.class));
+        //startService(new Intent(this, FirstService.class));
     }
     @Override
     protected void onResume() {
         super.onResume();
-        stopService(new Intent(this, FirstService.class));
+        //stopService(new Intent(this, FirstService.class));
     }
 
     public void app_specific_storage(){
